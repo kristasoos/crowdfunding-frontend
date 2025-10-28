@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import postLogin from "../api/post-login.js";
 import { useAuth } from "../hooks/use-auth.js";
+import SignUpForm from "./SignUpForm.jsx";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -55,6 +56,9 @@ function LoginForm() {
       </div>
       <button type="submit" onClick={handleSubmit}>
         Login
+      </button>
+      <button type="submit" onClick={handleSubmit}>
+        Sign Up
       </button>
     </form>
   );

@@ -14,7 +14,7 @@ function FundraiserPage() {
     return <p>{error.message}</p>;
   }
 
-  eturn(
+  return (
     <div>
       <h2>{fundraiser.title}</h2>
       <h3>Created at: {fundraiser.date_created}</h3>
