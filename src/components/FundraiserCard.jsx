@@ -7,9 +7,11 @@ function FundraiserCard(props) {
 
   return (
     <div className="fundraiser-card">
-      <Link to={fundraiserLink}>
+      <Link to={fundraiserLink} className="fundraiser-link">
         <img src={fundraiserData.image} />
         <h3>{fundraiserData.title}</h3>
+        <p>{fundraiserData.description}</p>
+        <h3 className="goal">Goal: ${fundraiserData.goal}</h3>
       </Link>
     </div>
   );

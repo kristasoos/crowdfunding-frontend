@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../hooks/use-auth.js";
 import postPledge from "../api/post-pledge.js";
 
-function postPledge(props) {
+function PledgeForm(props) {
   const { auth } = useAuth();
   const { projectId } = props;
   const [pledgeData, setPledgeData] = useState({
@@ -49,8 +49,8 @@ function postPledge(props) {
         <div>
           <label htmlFor="text">Enter Pledge Amount:</label>
           <input
-            type="number"
-            id="pledge-amount"
+            type="text"
+            id="amount"
             placeholder="Enter Pledge Amount"
             onChange={handleChange}
           />
@@ -69,14 +69,13 @@ function postPledge(props) {
             <input
               type="checkbox"
               id="anonymous"
-              checked={fundraiserData.anonymous}
+              checked={pledgeData.anonymous}
               onChange={handleChange}
             />
-            Pledge Anonymously:
+            Pledge Anonymously
           </label>
         </div>
       </div>
-      ;
       <button type="submit" onClick={handleSubmit}>
         Submit Pledge
       </button>
@@ -84,4 +83,4 @@ function postPledge(props) {
   );
 }
 
-export default postPledge;
+export default PledgeForm;

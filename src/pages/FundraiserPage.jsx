@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import useFundraiser from "../hooks/use-fundraiser";
+import { Link } from "react-router-dom";
+import postPledge from "../api/post-pledge";
 
 function FundraiserPage() {
   // Here we use a hook that comes for free in react router called `useParams` to get the id from the URL so that we can pass it to our useFundraiser hook.
@@ -13,6 +15,29 @@ function FundraiserPage() {
   if (error) {
     return <p>{error.message}</p>;
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (
+      credentials.amount &&
+      credentials.comment &&
+      credentials.isAnonymous &&
+      credentials.projectId
+    ) {
+      postPledge(
+        credentials.amount,
+        credentials.comment,
+        credentials.isAnonymous,
+        credentials.projectId
+      ).then((response) => {
+        window.localStorage.setItem("token", response.token);
+        setAuth({
+          token: response.token,
+        });
+        navigate("/");
+      });
+    }
+  };
 
   return (
     <div>
@@ -29,6 +54,9 @@ function FundraiserPage() {
           );
         })}
       </ul>
+      <button type="submit" onClick={handleSubmit}>
+        Submit Pledge
+      </button>
     </div>
   );
 }

@@ -8,6 +8,8 @@ import LoginPage from "./pages/LoginPage.jsx";
 
 import NavBar from "./components/NavBar.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
+import SignUpForm from "./components/SignUpForm.jsx";
+import PledgeForm from "./components/PledgeForm.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,8 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/fundraiser/:id", element: <FundraiserPage /> },
+      { path: "/signup", element: <SignUpForm /> },
+      { path: "/pledge", element: <PledgeForm /> },
     ],
   },
 ]);
