@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../hooks/use-auth.js";
-import postFundraiser from "../hooks/post-fundraiser.js";
+import postFundraiser from "../api/post-fundraiser.js";
 
-function postFundraiser() {
+function NewFundraiser() {
   const { auth } = useAuth();
   const [fundraiserData, setFundraiserData] = useState({
     title: "",
@@ -122,4 +122,4 @@ function postFundraiser() {
   );
 }
 
-export default postFundraiser;
+export default NewFundraiser;

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import postLogin from "../api/post-login.js";
 import postSignup from "../api/post-users.js";
 import { useAuth } from "../hooks/use-auth.js";
+import "./LoginSignUpForm.css";
 
 function SignUpForm() {
   const navigate = useNavigate();
@@ -42,7 +43,6 @@ function SignUpForm() {
     <form>
       <div className="signup-form">
         <div>
-          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -51,7 +51,6 @@ function SignUpForm() {
           />
         </div>
         <div className="signup-form">
-          <label htmlFor="username">Username:</label>
           <input
             type="text"
             id="username"
@@ -60,7 +59,6 @@ function SignUpForm() {
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -69,7 +67,7 @@ function SignUpForm() {
           />
         </div>
       </div>
-      <button type="submit" onClick={handleSubmit}>
+      <button className="signup-button" type="submit" onClick={handleSubmit}>
         Sign Up
       </button>
     </form>

@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { useAuth } from "../hooks/use-auth.js";
+import "./NavBar.css";
 
 function NavBar() {
   const { auth, setAuth } = useAuth();
@@ -22,6 +23,8 @@ function NavBar() {
         ) : (
           <Link to="/login">Login</Link>
         )}
+        <Link to="/about">About Us</Link>
+        <Link to="/contact">Contact</Link>
       </nav>
       <Outlet />
     </div>

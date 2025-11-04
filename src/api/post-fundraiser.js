@@ -1,4 +1,4 @@
-async function postFundraiser(
+async function newFundraiser(
   title,
   description,
   goal,
@@ -36,4 +36,4 @@ async function postFundraiser(
   return await response.json();
 }
 
-export default postFundraiser;
+export default newFundraiser;

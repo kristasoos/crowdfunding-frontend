@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "./LoginSignUpForm.css";
 
 import postLogin from "../api/post-login.js";
-// import { useAuth } from "../hooks/use-auth.js";
+import { useAuth } from "../hooks/use-auth.js";
 
 function LoginForm() {
   const navigate = useNavigate();
+  const { setAuth } = useAuth();
   // const { auth, setAuth } = useAuth();
   const [credentials, setCredentials] = useState({
     username: "",
@@ -36,7 +38,6 @@ function LoginForm() {
   return (
     <form>
       <div>
-        <label htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
@@ -45,7 +46,6 @@ function LoginForm() {
         />
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"
@@ -57,7 +57,9 @@ function LoginForm() {
         Login
       </button>
       <button>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/signup" className="signup-button">
+          Sign Up
+        </Link>
       </button>
     </form>
   );

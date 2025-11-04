@@ -16,29 +16,6 @@ function FundraiserPage() {
     return <p>{error.message}</p>;
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (
-      credentials.amount &&
-      credentials.comment &&
-      credentials.isAnonymous &&
-      credentials.projectId
-    ) {
-      postPledge(
-        credentials.amount,
-        credentials.comment,
-        credentials.isAnonymous,
-        credentials.projectId
-      ).then((response) => {
-        window.localStorage.setItem("token", response.token);
-        setAuth({
-          token: response.token,
-        });
-        navigate("/");
-      });
-    }
-  };
-
   return (
     <div>
       <h2>{fundraiser.title}</h2>
@@ -54,9 +31,6 @@ function FundraiserPage() {
           );
         })}
       </ul>
-      <button type="submit" onClick={handleSubmit}>
-        Submit Pledge
-      </button>
     </div>
   );
 }
