@@ -1,0 +1,23 @@
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #1e293b;
+}
+
+.about-image {
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  width: 50%;
+}
+
+.about-content {
+  max-width: 800px;
+  text-align: center;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #1e293b;
+  line-height: 1.6;
+}

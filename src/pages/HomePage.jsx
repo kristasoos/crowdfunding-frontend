@@ -1,20 +1,19 @@
 import useFundraisers from "../hooks/use-fundraisers";
-import FundraiserCard from "../components/FundraiserCard";
+import FundraiserCard, {
+  CreateFundraiserButton,
+} from "../components/FundraiserCard";
 import "./HomePage.css";
 
 function HomePage() {
   const { fundraisers = [] } = useFundraisers();
   return (
-    <div id="fundraiser-list">
-      {fundraisers?.map((fundraiserData) => {
-        if (!fundraiserData) return null;
-        return (
-          <FundraiserCard
-            key={fundraiserData.id ?? fundraiserData.title}
-            fundraiser={fundraiserData}
-          />
-        );
-      })}
+    <div>
+      <div id="fundraiser-list">
+        {fundraisers?.map((f) => (
+          <FundraiserCard key={f.id ?? f.title} fundraiser={f} />
+        ))}
+        <CreateFundraiserButton /> {/* button links to /new-fundraiser */}
+      </div>
     </div>
   );
 }

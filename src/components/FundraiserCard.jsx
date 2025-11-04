@@ -50,4 +50,20 @@ function FundraiserCard(props) {
   );
 }
 
+export function CreateFundraiserButton() {
+  // show button only to authenticated users
+  const { auth } = useAuth();
+  if (!auth?.token) return null;
+
+  return (
+    <div className="create-button-container">
+      <button>
+        <Link to="/new-fundraiser" className="create-button">
+          Create Fundraiser
+        </Link>
+      </button>
+    </div>
+  );
+}
+
 export default FundraiserCard;

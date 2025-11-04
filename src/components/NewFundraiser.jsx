@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../hooks/use-auth.js";
 import postFundraiser from "../api/post-fundraiser.js";
+import "./LoginSignUpForm.css";
 
 function NewFundraiser() {
   const { auth } = useAuth();
@@ -27,7 +28,7 @@ function NewFundraiser() {
       return;
     }
     const { title, description, goal, image, isOpen, dateCreated } =
-      projectData;
+      fundraiserData;
     if (title && description && goal > 0) {
       try {
         const response = await postProject(
@@ -41,7 +42,7 @@ function NewFundraiser() {
         alert("Congratulations!! Your have created a new project");
         console.log("Project response:", response);
 
-        setProjectData({
+        setFundraiserData({
           title: "",
           description: "",
           goal: 0,
@@ -61,7 +62,6 @@ function NewFundraiser() {
     <form>
       <div className="new-fundraiser">
         <div>
-          <label htmlFor="title">Project Title:</label>
           <input
             type="text"
             id="title"
@@ -70,7 +70,6 @@ function NewFundraiser() {
           />
         </div>
         <div className="signup-form">
-          <label htmlFor="description">Project Description:</label>
           <input
             type="text"
             id="project-description"
@@ -79,7 +78,6 @@ function NewFundraiser() {
           />
         </div>
         <div>
-          <label htmlFor="goal">Your Project Goal:</label>
           <input
             type="text"
             id="project-goal"
@@ -88,9 +86,8 @@ function NewFundraiser() {
           />
         </div>
         <div>
-          <label htmlFor="image">Add your Image URL here:</label>
           <input
-            type="image"
+            type="text"
             id="project-image"
             placeholder="Image URL:"
             onChange={handleChange}
