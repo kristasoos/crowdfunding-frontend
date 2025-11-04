@@ -57,7 +57,7 @@ function LoginForm() {
         Login
       </button>
       <button>
-        <Link to="/signup" className="signup-button">
+        <Link to="signup" className="signup-button">
           Sign Up
         </Link>
       </button>
