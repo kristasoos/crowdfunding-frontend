@@ -1,5 +1,5 @@
 async function postPledge(amount, comment, isAnonymous, projectId) {
-  const url = `${import.meta.env.VITE_API_URL}/pledges/`;
+  const url = `${import.meta.env.VITE_API_URL}pledges/`;
   const response = await fetch(url, {
     method: "POST", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
     headers: {

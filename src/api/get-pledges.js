@@ -1,7 +1,7 @@
 async function getPledges(fundraiserId) {
   const url = `${
     import.meta.env.VITE_API_URL
-  }/fundraisers/${fundraiserId}/pledges`;
+  }fundraisers/${fundraiserId}/pledges`;
   const response = await fetch(url, { method: "GET" });
 
   if (!response.ok) {
