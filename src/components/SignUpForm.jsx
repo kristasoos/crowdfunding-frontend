@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import postLogin from "../api/post-login.js";
 import postSignup from "../api/post-users.js";
 import { useAuth } from "../hooks/use-auth.js";
+
 import "./LoginSignUpForm.css";
 
 function SignUpForm() {
   const navigate = useNavigate();
-  const { auth, setAuth } = useAuth();
+  const { setAuth } = useAuth();
   const [credentials, setCredentials] = useState({
-    email: "",
     username: "",
+    email: "",
     password: "",
   });
 
@@ -24,18 +24,21 @@ function SignUpForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (credentials.email && credentials.username && credentials.password) {
-      postSignup(
-        credentials.username,
-        credentials.email,
-        credentials.password
-      ).then((response) => {
-        window.localStorage.setItem("token", response.token);
-        setAuth({
-          token: response.token,
+    if (credentials.username && credentials.email && credentials.password) {
+      postSignup(credentials.username, credentials.email, credentials.password)
+        .then((response) => {
+          const token = `Token ${response.token}`;
+          window.localStorage.setItem("token", token);
+          setAuth({
+            token: token,
+          });
+          navigate("/");
+        })
+        .catch((error) => {
+          // Handle errors (show to user)
+          console.error("Signup failed:", error);
+          alert("Signup failed. Please try again.");
         });
-        navigate("/");
-      });
     }
   };
 
@@ -44,17 +47,17 @@ function SignUpForm() {
       <div className="signup-form">
         <div>
           <input
-            type="email"
-            id="email"
-            placeholder="Enter Email Address"
+            type="text"
+            id="username"
+            placeholder="Enter your username"
             onChange={handleChange}
           />
         </div>
-        <div className="signup-form">
+        <div>
           <input
-            type="text"
-            id="username"
-            placeholder="Enter username"
+            type="email"
+            id="email"
+            placeholder="Enter Email Address"
             onChange={handleChange}
           />
         </div>
@@ -62,7 +65,7 @@ function SignUpForm() {
           <input
             type="password"
             id="password"
-            placeholder="Password"
+            placeholder="Enter password"
             onChange={handleChange}
           />
         </div>

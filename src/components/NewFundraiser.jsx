@@ -16,7 +16,7 @@ function NewFundraiser() {
   const handleChange = (event) => {
     const { id, value, type, checked } = event.target;
     setFundraiserData((prevFundraiserData) => ({
-      prevFundraiserData,
+      ...prevFundraiserData,
       [id]: type === "checkbox" ? checked : value,
     }));
   };
@@ -31,7 +31,7 @@ function NewFundraiser() {
       fundraiserData;
     if (title && description && goal > 0) {
       try {
-        const response = await postProject(
+        const response = await postFundraiser(
           title,
           description,
           goal,
@@ -72,7 +72,7 @@ function NewFundraiser() {
         <div className="signup-form">
           <input
             type="text"
-            id="project-description"
+            id="description"
             placeholder="Enter Project description here"
             onChange={handleChange}
           />
@@ -80,7 +80,7 @@ function NewFundraiser() {
         <div>
           <input
             type="text"
-            id="project-goal"
+            id="goal"
             placeholder="Enter Project goal:"
             onChange={handleChange}
           />
@@ -88,7 +88,7 @@ function NewFundraiser() {
         <div>
           <input
             type="text"
-            id="project-image"
+            id="image"
             placeholder="Image URL:"
             onChange={handleChange}
           />
@@ -97,7 +97,7 @@ function NewFundraiser() {
           <label htmlFor="isOpen">Project Is Open for Pledges</label>
           <input
             type="checkbox"
-            id="project-is-open"
+            id="is-open"
             checked={fundraiserData.isOpen}
             onChange={handleChange}
           />
