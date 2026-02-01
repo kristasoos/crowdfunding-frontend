@@ -5,7 +5,7 @@ async function deleteFundraiser(fundraiserId) {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      ...(token ? { Authorization: `Token ${token}` } : {}),
+      ...(token ? { Authorization: token } : {}),
     },
   });
 

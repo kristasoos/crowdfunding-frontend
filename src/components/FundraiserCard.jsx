@@ -7,9 +7,11 @@ function FundraiserCard(props) {
   // accept fundraiser and optional onDelete callback
   const { fundraiser, fundraiserData, onDelete } = props;
   const item = fundraiser ?? fundraiserData;
-  if (!item) return null;
 
   const { auth } = useAuth();
+
+  if (!item) return null;
+
   const id = item.id ?? item.pk ?? item.title;
   const fundraiserLink = `/fundraiser/${id}`;
 
@@ -56,7 +58,7 @@ export function CreateFundraiserButton() {
   if (!auth?.token) return null;
 
   return (
-    <div className="create-button-container">
+    <div>
       <button>
         <Link to="/new-fundraiser" className="create-button">
           Create Fundraiser

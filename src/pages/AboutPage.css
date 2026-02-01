@@ -1,23 +1,119 @@
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-family: "Inter", system-ui, sans-serif;
-  color: #1e293b;
+/* Page container */
+.about-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  padding-bottom: 3rem;
+}
+
+/* Hero section */
+.about-hero {
+  background: linear-gradient(135deg, #4b5563 0%, #2d3436 100%);
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.about-hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+/* Content wrapper */
+.about-content-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* About section */
+.about-section {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.about-section p {
+  font-size: 1.05rem;
+  color: #6b7280;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* About image container */
+.about-image-container {
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .about-image {
-  height: auto;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
   width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.about-content {
-  max-width: 800px;
-  text-align: center;
-  font-family: "Inter", system-ui, sans-serif;
-  color: #1e293b;
-  line-height: 1.6;
+.about-image-container:hover .about-image {
+  transform: scale(1.02);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .about-page {
+    padding-bottom: 2rem;
+  }
+
+  .about-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-hero p {
+    font-size: 1rem;
+  }
+
+  .about-content-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .about-section {
+    padding: 1.5rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-section p {
+    font-size: 0.95rem;
+  }
 }
